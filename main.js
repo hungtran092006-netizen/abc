@@ -103,6 +103,10 @@ const updateProduct = () => {
 };
 
 const addProduct = () => {
+    if (!name || !price || !quantity || !category || !image) {
+        alert("Vui lòng nhập đầy đủ thông tin sản phẩm!");
+        return; // Dừng lại, không gửi request
+    }
     axios.post(`${API}/products`, {
         title: document.getElementById("name").value,
         price: document.getElementById("price").value,
